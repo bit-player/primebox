@@ -2,19 +2,9 @@ body {
   font-size: 1em;
 }
 
-h2, h3, h4, h5 {
+h3 {
   font-family: sans-serif;
   color: #a0a0a0;
-}
-
-h2 {
-  margin-top: 70px;
-  text-align: center;
-  font-weight: 200;
-  font-size: 3em;
-}
-
-h3 {
   text-align: center;
   font-weight: 300;
   font-size: 2em;
@@ -35,15 +25,15 @@ div#content {
   max-width: 700px;
 }
 
-#the-box {
+#the-primebox {
   position: relative;
   margin: auto;
   width: 220px;
   height: 150px;
-  background-color: #f88d66;
+  background-color: #ed6837;
 }
 
-#the-number {
+#primebox-number-tape {
   height: 30px;
   width: 120px;
   position: absolute;
@@ -60,7 +50,7 @@ div#content {
 }
 
 
-#the-button {
+#primebox-next-button {
   width: 50px;
   display: block;
   position: absolute;

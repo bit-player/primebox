@@ -1,20 +1,22 @@
 /*   
-  What is it? How does it work? Who wrote it?  
+  Implements a prime-generating function discovered by Matt Frank
+  in 2003 and given further analysis in 2008 by Eric S. Rowland.
+  See Journal of Integer Sequences, Vol. 11 (2008), Article 08.2.8
 */
 
 (function() {
 
-  var theNumber = document.getElementById("the-number");
-  var theButton = document.getElementById("the-button");
-  theButton.onclick = doButton;  
+  var numberTape = document.getElementById("primebox-number-tape");
+  var nextButton = document.getElementById("primebox-next-button");
+  nextButton.onclick = doNextButton;
   
   function init() {
     console.log("initing");
   }
   
-  function doButton(e) {
+  function doNextButton(e) {
     console.log("buttoning")
-    theNumber.innerHTML = gcdPrimes.next();
+    numberTape.innerHTML = gcdPrimes.next();
   }
   
   function gcd(x, y) {
