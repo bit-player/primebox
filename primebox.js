@@ -10,13 +10,21 @@
   var nextButton = document.getElementById("primebox-next-button");
   nextButton.onclick = doNextButton;
   
-  function init() {
-    console.log("initing");
-  }
+  var scrollTimer;
   
   function doNextButton(e) {
-    console.log("buttoning")
-    numberTape.innerHTML = gcdPrimes.next();
+    var p = document.createElement("p");
+    p.innerHTML = gcdPrimes();
+    numberTape.appendChild(p);
+    scrollTimer = setInterval(scrollUp, 5);
+  }
+  
+  function scrollUp() {
+    var y = numberTape.scrollTop;
+    numberTape.scrollTop += 1;
+    if (y === numberTape.scrollTop) {
+      clearInterval(scrollTimer);
+    }
   }
   
   function gcd(x, y) {
@@ -28,31 +36,17 @@
     return x;
   }
 
-  var a0 = 7;
+  var left = 7, right = 7, n = 1;
   
-  var gcdPrimes = {
-    n: 1,
-    left: a0,
-    right: a0,
-    init: function() {
-      this.left = a0;
-      this.right = a0;
-    },
-    next: function() {
-      this.left = this.right;
-      this.right = this.left + gcd(this.n, this.left);
-      this.n += 1;
-      var diff = this.right - this.left;
-      if (diff > 1) {
-        return diff;
-      }
-      else {
-        return gcdPrimes.next();
-      }
+  function gcdPrimes() {
+    var delta = 1;
+    while (delta === 1) {
+      left = right;
+      right = left + gcd(n, left);
+      n++;
+      delta = right - left;
     }
+    return delta;
   }
-  
-  init();  
-  
-
+    
 })();
