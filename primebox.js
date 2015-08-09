@@ -17,7 +17,7 @@
   nextButton.onclick = doNextButton;
   resetSwitch.onclick = doResetSwitch;
   
-  var left = 7, right = 7, n = 1;
+  var left = 7, right = 8, n = 1;
   var scrollTimer;
   
   function doNextButton(e) {
@@ -55,10 +55,10 @@
   function gcdPrimes() {
     var delta = 1;
     while (delta === 1) {
+      delta = right - left;
+      n++;
       left = right;
       right = left + gcd(n, left);
-      n++;
-      delta = right - left;
     }
     return delta;
   }
