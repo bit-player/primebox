@@ -8,8 +8,11 @@
 
   var numberTape = document.getElementById("primebox-number-tape");
   var nextButton = document.getElementById("primebox-next-button");
+  var resetSwitch = document.getElementById("primebox-reset-switch")
   nextButton.onclick = doNextButton;
+  resetSwitch.onclick = doResetSwitch;
   
+  var left = 7, right = 7, n = 1;
   var scrollTimer;
   
   function doNextButton(e) {
@@ -27,6 +30,13 @@
     }
   }
   
+  function doResetSwitch() {
+    left = 7; right = 7; n = 1;
+    while (numberTape.firstChild) {
+      numberTape.removeChild(numberTape.firstChild);
+    }
+  }
+  
   function gcd(x, y) {
     while (y > 0) {
       var rem = x % y;
@@ -36,7 +46,6 @@
     return x;
   }
 
-  var left = 7, right = 7, n = 1;
   
   function gcdPrimes() {
     var delta = 1;

@@ -22,6 +22,23 @@ h3 {
   margin: 0px;
 }
 
+div#primebox-reset-switch {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #8e0000;
+  border: 1px solid #fff;
+}
+
+div#primebox-reset-switch:hover {
+  background-color: #00d8ff;
+  border: 1px solid #9187ff;
+  
+}
+
 div#content {
   position: relative;
   margin: auto;
