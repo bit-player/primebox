@@ -23,7 +23,7 @@
   
   function doNextButton(e) {
     var p = document.createElement("p");
-    p.innerHTML = gcdPrimes();
+    p.innerHTML = nextPrime();
     numberTape.appendChild(p);
     scrollTimer = setInterval(scrollUp, 5);
   }
@@ -37,7 +37,7 @@
   }
   
   function doResetSwitch() {
-    left = 7; right = 7; n = 1;
+    left = 7; right = 8; n = 1;
     while (numberTape.firstChild) {
       numberTape.removeChild(numberTape.firstChild);
     }
@@ -53,7 +53,7 @@
   }
 
   
-  function gcdPrimes() {
+  function nextPrime() {
     var delta = 1;
     while (delta === 1) {
       delta = right - left;
