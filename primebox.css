@@ -10,35 +10,6 @@ h3 {
   font-size: 2em;
 }
 
-#primebox-number-tape p {
-  text-align: right;
-  font-family: sans-serif;
-  font-size: 1.0em;
-  margin: 0em;
-  color: #808080;
-}
-
-#primebox-number-tape hr {
-  margin: 0px;
-}
-
-div#primebox-reset-switch {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 4px;
-  height: 4px;
-  border-radius: 4px;
-  background-color: #8e0000;
-  border: 1px solid #fff;
-}
-
-div#primebox-reset-switch:hover {
-  background-color: #00d8ff;
-  border: 1px solid #9187ff;
-  
-}
-
 div#content {
   position: relative;
   margin: auto;
@@ -67,6 +38,14 @@ div#content {
   overflow-y: scroll;
 }
 
+#primebox-number-tape p {
+  text-align: right;
+  font-family: sans-serif;
+  font-size: 1.0em;
+  margin: 0em;
+  color: #808080;
+}
+
 
 #primebox-next-button {
   width: 50px;
@@ -75,3 +54,20 @@ div#content {
   top: 15px;
   left: 85px;
 }
+
+div#primebox-reset-switch {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #8e0000;
+  border: 1px solid #fff;
+}
+
+div#primebox-reset-switch:hover {
+  background-color: #00d8ff;
+  border: 1px solid #9187ff;
+}
+

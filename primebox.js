@@ -2,13 +2,18 @@
   Implements a prime-generating function discovered by Matt Frank
   in 2003 and given further analysis in 2008 by Eric S. Rowland.
   See Journal of Integer Sequences, Vol. 11 (2008), Article 08.2.8
+  
+  Written by Brian Hayes for a blog post titled "Pumping the Primes"
+  posted to bit-player.org.
 */
+
+/* jshint browser: true */
 
 (function() {
 
   var numberTape = document.getElementById("primebox-number-tape");
   var nextButton = document.getElementById("primebox-next-button");
-  var resetSwitch = document.getElementById("primebox-reset-switch")
+  var resetSwitch = document.getElementById("primebox-reset-switch");
   nextButton.onclick = doNextButton;
   resetSwitch.onclick = doResetSwitch;
   
