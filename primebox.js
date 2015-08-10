@@ -17,9 +17,6 @@
   nextButton.onclick = doNextButton;
   resetSwitch.onclick = doResetSwitch;
   
-//  var left = 7, right = 8, n = 1;
-  
-  var n = 1, p = 7;
   
   var scrollTimer;
   var scrolling = false;
@@ -75,14 +72,21 @@
     }
     
   }
+
+  var n = 1, p = 7;   // initial values
   
+  function nextQ() {
+    var q = gcd(n, p);
+    n += 1;
+    p += q;
+    return q;
+  }
+
   function nextPrime() {
-    var q = 1;
-    while (q === 1) {
-      q = gcd(n, p);
-      n += 1;
-      p += q;
-    }
+    var q;
+    do {
+      q = nextQ();
+    } while (q === 1);
     return q;
   }
     
