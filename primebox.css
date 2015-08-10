@@ -20,7 +20,7 @@ div#content {
 #the-primebox {
   position: relative;
   margin: auto;
-  width: 220px;
+  width: 250px;
   height: 250px;
   background-color: #ed6837;
   border-radius: 8px;
@@ -28,10 +28,10 @@ div#content {
 
 #primebox-number-tape {
   height: 160px;
-  width: 120px;
+  width: 130px;
   position: absolute;
   top: 50px;
-  left: 47px;
+  left: 57px;
   background-color: #ededed;
   border: 1px solid #919191;
   padding: 2px;
@@ -47,13 +47,12 @@ div#content {
   line-height: 1.2em;
 }
 
-
 #primebox-next-button {
   width: 50px;
   display: block;
   position: absolute;
   top: 15px;
-  left: 85px;
+  left: 100px;
 }
 
 div#primebox-reset-switch {
