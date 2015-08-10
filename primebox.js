@@ -17,15 +17,22 @@
   nextButton.onclick = doNextButton;
   resetSwitch.onclick = doResetSwitch;
   
-  var left = 7, right = 8, n = 1;
+//  var left = 7, right = 8, n = 1;
+  
+  var n = 1, p = 7;
   
   var scrollTimer;
+  var scrolling = false;
   
   function doNextButton(e) {
     var p = document.createElement("p");
     p.innerHTML = nextPrime();
     numberTape.appendChild(p);
-    scrollTimer = setInterval(scrollUp, 5);
+    if (!scrolling) {
+      scrolling = true;
+      scrollTimer = setInterval(scrollUp, 5);
+    }
+    
   }
   
   function scrollUp() {
@@ -33,11 +40,12 @@
     numberTape.scrollTop += 1;
     if (y === numberTape.scrollTop) {
       clearInterval(scrollTimer);
+      scrolling = false;
     }
   }
   
   function doResetSwitch() {
-    left = 7; right = 8; n = 1;
+    n = 1; p = 7;
     while (numberTape.firstChild) {
       numberTape.removeChild(numberTape.firstChild);
     }
@@ -53,15 +61,29 @@
   }
 
   
-  function nextPrime() {
-    var delta = 1;
-    while (delta === 1) {
-      delta = right - left;
-      n++;
-      left = right;
-      right = left + gcd(n, left);
+  // how I would like to write this function,
+  // but tail-call optimization is an ES6 feature
+  // that hasn't hit the streets yet
+  
+  function recursiveNextPrime(n, p) {
+    var q = gcd(n, p);
+    if (q > 1) {
+      return q;
     }
-    return delta;
+    else {
+      return recursiveNextPrime(n + 1, p + q);
+    }
+    
+  }
+  
+  function nextPrime() {
+    var q = 1;
+    while (q === 1) {
+      q = gcd(n, p);
+      n += 1;
+      p += q;
+    }
+    return q;
   }
     
 })();
