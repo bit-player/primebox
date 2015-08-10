@@ -17,12 +17,15 @@
   nextButton.onclick = doNextButton;
   resetSwitch.onclick = doResetSwitch;
   
-  var left = 7, right = 8, n = 1;
+//  var left = 7, right = 8, n = 1;
+  
+  var n = 1, p = 7;
+  
   var scrollTimer;
   
   function doNextButton(e) {
     var p = document.createElement("p");
-    p.innerHTML = gcdPrimes();
+    p.innerHTML = nextPrime();
     numberTape.appendChild(p);
     scrollTimer = setInterval(scrollUp, 5);
   }
@@ -36,7 +39,7 @@
   }
   
   function doResetSwitch() {
-    left = 7; right = 7; n = 1;
+    n = 1; p = 7;
     while (numberTape.firstChild) {
       numberTape.removeChild(numberTape.firstChild);
     }
@@ -51,16 +54,27 @@
     return x;
   }
 
-  
-  function gcdPrimes() {
-    var delta = 1;
-    while (delta === 1) {
-      delta = right - left;
-      n++;
-      left = right;
-      right = left + gcd(n, left);
+  function recursiveNextPrime() {
+    var q = gcd(n, p);
+    n += 1;
+    p += q;
+    if (q > 1) {
+      return q;
     }
-    return delta;
+    else {
+      recursiveNextPrime();
+    }
+    
+  }
+  
+  function nextPrime() {
+    var q = 1;
+    while (q === 1) {
+      q = gcd(n, p);
+      n += 1;
+      p += q;
+    }
+    return q;
   }
     
 })();
