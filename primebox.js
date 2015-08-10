@@ -22,12 +22,17 @@
   var n = 1, p = 7;
   
   var scrollTimer;
+  var scrolling = false;
   
   function doNextButton(e) {
     var p = document.createElement("p");
     p.innerHTML = nextPrime();
     numberTape.appendChild(p);
-    scrollTimer = setInterval(scrollUp, 5);
+    if (!scrolling) {
+      scrolling = true;
+      scrollTimer = setInterval(scrollUp, 5);
+    }
+    
   }
   
   function scrollUp() {
@@ -35,6 +40,7 @@
     numberTape.scrollTop += 1;
     if (y === numberTape.scrollTop) {
       clearInterval(scrollTimer);
+      scrolling = false;
     }
   }
   
@@ -54,15 +60,18 @@
     return x;
   }
 
-  function recursiveNextPrime() {
+  
+  // how I would like to write this function,
+  // but tail-call optimization is an ES6 feature
+  // that hasn't hit the streets yet
+  
+  function recursiveNextPrime(n, p) {
     var q = gcd(n, p);
-    n += 1;
-    p += q;
     if (q > 1) {
       return q;
     }
     else {
-      recursiveNextPrime();
+      return recursiveNextPrime(n + 1, p + q);
     }
     
   }
