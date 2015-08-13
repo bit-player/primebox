@@ -73,7 +73,7 @@
     
   }
 
-  var n = 1, p = 7;   // initial values
+  var n = 2, p = 7;   // initial values
   
   function nextQ() {
     var q = gcd(n, p);
