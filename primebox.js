@@ -19,7 +19,7 @@
   
 //  var left = 7, right = 8, n = 1;
   
-  var n = 1, p = 7;
+  var n = 2, p = 7;
   
   var scrollTimer;
   var scrolling = false;
