@@ -75,7 +75,7 @@
 
   var n = 2, a = 7;   // initial values
   
-  function nextQ() {
+  function nextG() {
     var g = gcd(n, a);
     n += 1;
     a += g;
@@ -85,7 +85,7 @@
   function nextPrime() {
     var g;
     do {
-      g = nextQ();
+      g = nextG();
     } while (g === 1);
     return g;
   }
