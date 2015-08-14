@@ -42,7 +42,7 @@
   }
   
   function doResetSwitch() {
-    n = 1; p = 7;
+    n = 2; a = 7;
     while (numberTape.firstChild) {
       numberTape.removeChild(numberTape.firstChild);
     }
@@ -62,32 +62,32 @@
   // but tail-call optimization is an ES6 feature
   // that hasn't hit the streets yet
   
-  function recursiveNextPrime(n, p) {
-    var q = gcd(n, p);
-    if (q > 1) {
-      return q;
+  function recursiveNextPrime(n, a) {
+    var g = gcd(n, a);
+    if (g > 1) {
+      return g;
     }
     else {
-      return recursiveNextPrime(n + 1, p + q);
+      return recursiveNextPrime(n + 1, a + g);
     }
     
   }
 
-  var n = 2, p = 7;   // initial values
+  var n = 2, a = 7;   // initial values
   
   function nextQ() {
-    var q = gcd(n, p);
+    var g = gcd(n, a);
     n += 1;
-    p += q;
-    return q;
+    a += g;
+    return g;
   }
 
   function nextPrime() {
-    var q;
+    var g;
     do {
-      q = nextQ();
-    } while (q === 1);
-    return q;
+      g = nextQ();
+    } while (g === 1);
+    return g;
   }
     
 })();
