@@ -52,6 +52,6 @@ div#primebox-reset-switch:hover {
   border: 1px solid #9187ff;
 }
 
-pre {
+#content pre {
   margin-bottom: 0px;
 }
