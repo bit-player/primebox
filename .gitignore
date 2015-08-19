@@ -3,3 +3,5 @@
 # Example .gitignore files: https://github.com/github/gitignore
 /bower_components/
 /node_modules/
+orange-black-box.png
+prime generators.ipynb
