@@ -70,6 +70,9 @@
     else {
       return recursiveNextPrime(n + 1, a + g);
     }
+  }
+  
+  function diffNextG() {
     
   }
 
